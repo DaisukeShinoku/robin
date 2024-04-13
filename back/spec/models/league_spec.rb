@@ -1,7 +1,9 @@
-require 'rails_helper'
+# frozen_string_literal: true
+
+require "rails_helper"
 
 RSpec.describe League, type: :model do
-  describe 'validations' do
+  describe "validations" do
     it "nameがない場合は無効であること" do
       league = build(:league, name: nil)
       expect(league).to be_invalid
