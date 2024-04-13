@@ -40,5 +40,13 @@ module Back
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    config.generators do |g|
+      g.test_framework :rspec, # ここから5行を追記
+        fixtures: false, # テストDBにレコードを作るfixtureの作成をスキップ(FactoryBotを使用するため)
+        view_specs: false, # ビューファイル用のスペックを作成しない
+        helper_specs: false, # ヘルパーファイル用のスペックを作成しない
+        routing_specs: false # routes.rb用のスペックファイル作成しない
+    end
   end
 end
