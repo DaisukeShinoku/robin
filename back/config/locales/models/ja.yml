@@ -1,0 +1,8 @@
+---
+ja:
+  activerecord:
+    models:
+      league: リーグ
+    attributes:
+      league:
+        name: リーグ名

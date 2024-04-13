@@ -12,7 +12,7 @@ class LeaguesController < ApplicationController
     if league.save
       render json: league, status: :created
     else
-      render json: league.errors, status: :unprocessable_entity
+      render json: league.errors.full_messages.each { _1 }, status: :unprocessable_entity
     end
   end
 

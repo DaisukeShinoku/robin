@@ -1,7 +1,20 @@
+require:
+  - rubocop-factory_bot
+  - rubocop-rails
+  - rubocop-rspec
+
 inherit_from: .rubocop_todo.yml
 
 StringLiterals:
   EnforcedStyle: double_quotes
 
 Style/Documentation:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - "back/db/schema.rb"
+    - "back/spec/**/*"
+
+RSpec/MultipleExpectations:
   Enabled: false
