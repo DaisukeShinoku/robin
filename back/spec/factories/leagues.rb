@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :league do
-    name { "テスト用リーグ" }
+    sequence(:name) { |n| "name_#{n}" }
   end
 end
