@@ -17,14 +17,14 @@ RSpec.describe "Leagues", type: :request do
     it "nameがnilで渡ったときleagueが作成できない" do
       nil_params = { name: nil }
       expect { post leagues_path, params: nil_params }.to change(League, :count).by(0)
-      expect(JSON.parse(response.body)).to match_array(%w[リーグ名を入力してください リーグ名は1文字以上で入力してください])
+      expect(JSON.parse(response.body)).to match_array(["リーグ名を入力してください"])
       expect(response).to have_http_status(:unprocessable_entity)
     end
 
     it "nameが空文字で渡ったときleagueが作成できない" do
       empty_params = { name: "" }
       expect { post leagues_path, params: empty_params }.to change(League, :count).by(0)
-      expect(JSON.parse(response.body)).to match_array(%w[リーグ名を入力してください リーグ名は1文字以上で入力してください])
+      expect(JSON.parse(response.body)).to match_array(["リーグ名を入力してください"])
       expect(response).to have_http_status(:unprocessable_entity)
     end
 
@@ -38,7 +38,7 @@ RSpec.describe "Leagues", type: :request do
     it "不正なパラメーターが渡ったときleagueが作成できない" do
       invalid_params = { invalid: "invalid" }
       expect { post leagues_path, params: invalid_params }.to change(League, :count).by(0)
-      expect(JSON.parse(response.body)).to match_array(%w[リーグ名を入力してください リーグ名は1文字以上で入力してください])
+      expect(JSON.parse(response.body)).to match_array(["リーグ名を入力してください"])
       expect(response).to have_http_status(:unprocessable_entity)
     end
 

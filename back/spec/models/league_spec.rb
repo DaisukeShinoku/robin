@@ -24,4 +24,17 @@ RSpec.describe League, type: :model do
       expect(league).to be_valid
     end
   end
+
+  describe "associations" do
+    it "playersが存在すること" do
+      association = described_class.reflect_on_association(:players)
+      expect(association.macro).to eq :has_many
+    end
+
+    it "playersが削除されること" do
+      league = create(:league)
+      create_list(:player, 3, league:)
+      expect { league.destroy }.to change(Player, :count).by(-3)
+    end
+  end
 end
