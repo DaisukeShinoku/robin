@@ -3,6 +3,10 @@ ja:
   activerecord:
     models:
       league: リーグ
+      player: 選手
     attributes:
       league:
         name: リーグ名
+        players: 登録選手
+      league/players:
+        name: 選手名
