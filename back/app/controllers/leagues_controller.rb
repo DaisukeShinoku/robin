@@ -8,7 +8,6 @@ class LeaguesController < ApplicationController
 
   def create
     league = League.new(league_params)
-
     if league.save
       render json: league, status: :created
     else
@@ -19,6 +18,6 @@ class LeaguesController < ApplicationController
   private
 
   def league_params
-    params.permit(:name)
+    params.permit(:name, players_attributes: [:name])
   end
 end
