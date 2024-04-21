@@ -2,6 +2,7 @@ require:
   - rubocop-factory_bot
   - rubocop-rails
   - rubocop-rspec
+  - rubocop-rspec_rails
 
 inherit_from: .rubocop_todo.yml
 
@@ -13,8 +14,12 @@ Style/Documentation:
 
 Metrics/BlockLength:
   Exclude:
-    - "back/db/schema.rb"
-    - "back/spec/**/*"
+    - "db/schema.rb"
+    - "spec/**/*"
+
+Metrics/MethodLength:
+  Exclude:
+    - "db/**/*"
 
 RSpec/MultipleExpectations:
   Enabled: false
