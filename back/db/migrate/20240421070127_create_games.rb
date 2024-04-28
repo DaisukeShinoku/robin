@@ -9,8 +9,8 @@ class CreateGames < ActiveRecord::Migration[7.1]
       t.references :away_ad_player, type: :uuid, null: false, foreign_key: { to_table: :players }
       t.references :away_deuce_player, type: :uuid, null: false, foreign_key: { to_table: :players }
       t.integer :turn, null: false
-      t.integer :home_score, null: false
-      t.integer :away_score, null: false
+      t.integer :home_score
+      t.integer :away_score
 
       t.timestamps
     end

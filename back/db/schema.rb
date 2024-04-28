@@ -21,8 +21,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_21_070127) do
     t.uuid "away_ad_player_id", null: false
     t.uuid "away_deuce_player_id", null: false
     t.integer "turn", null: false
-    t.integer "home_score", null: false
-    t.integer "away_score", null: false
+    t.integer "home_score"
+    t.integer "away_score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["away_ad_player_id"], name: "index_games_on_away_ad_player_id"
